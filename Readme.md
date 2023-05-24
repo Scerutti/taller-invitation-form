@@ -41,7 +41,7 @@ Si quieres contribuir a este proyecto, por favor sigue los siguientes pasos:
 
 ## Autores
 
-- [Tu nombre](https://github.com/Scerutti) - Desarrollador principal
+- [Seba Cerutti](https://github.com/Scerutti) - Desarrollador principal
 
 ## Licencia
 
