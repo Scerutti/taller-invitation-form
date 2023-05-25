@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Card, CardContent, Typography, TextField, Checkbox, Button, useTheme, Link, FormGroup, FormControlLabel, Container } from '@mui/material';
-import Data from "../shared/Data.json"
-import { EMAIL_BODY, EMAIL_SUBJECT } from '../shared/constants';
+import Data from "../../shared/Data.json"
+import { EMAIL_BODY, EMAIL_SUBJECT } from '../../shared/constants';
 import "./TallerHome.css"
 
 interface TallerHome {
