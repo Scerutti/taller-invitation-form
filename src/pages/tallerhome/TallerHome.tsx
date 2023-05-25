@@ -4,6 +4,7 @@ import Data from "../../shared/Data.json"
 import { EMAIL_BODY, EMAIL_SUBJECT } from '../../shared/constants';
 import CustomForm from '../../components/customform/CustomForm';
 import { TallerHomeDTO } from '../../shared/interface';
+import ErrorPage from '../error/Error';
 
 import "./TallerHome.css"
 
@@ -25,8 +26,10 @@ const TallerHome: React.FC<{}> = () => {
 
 
     return (
-            <Container maxWidth="md" style={{padding: theme.spacing(2,0)}}>
-                <Grid container spacing={2} justifyContent="center" style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}>
+        <Container maxWidth="md" style={{ padding: theme.spacing(2, 0) }}>
+            {!fullData || Object.keys(fullData).length === 0 ?
+                <ErrorPage />
+                : <Grid container spacing={2} justifyContent="center" style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}>
                     <Grid item xs={12} sm={10} md={8} lg={6} xl={5}>
                         <Grid container spacing={2} direction="column" alignItems="center">
                             <Grid item xs={12}>
@@ -42,7 +45,7 @@ const TallerHome: React.FC<{}> = () => {
                                 </Card>
                             </Grid>
                             <Grid item xs={12}>
-                                <ItemData caption='Ubicacion:' description={fullData.location}/>
+                                <ItemData caption='Ubicacion:' description={fullData.location} />
                             </Grid>
                             <Grid item xs={12}>
                                 <ItemData caption='Fecha:' description={fullData.date} />
@@ -61,9 +64,9 @@ const TallerHome: React.FC<{}> = () => {
                             <Grid item xs={12}>
                                 <Typography variant="body2" >
                                     Mail de contacto:&nbsp;
-                                    <Link 
-                                        href={`mailto:${fullData.contact}?subject=${encodeURIComponent(EMAIL_SUBJECT)}&body=${encodeURIComponent(EMAIL_BODY)}`} 
-                                        target="_blank" 
+                                    <Link
+                                        href={`mailto:${fullData.contact}?subject=${encodeURIComponent(EMAIL_SUBJECT)}&body=${encodeURIComponent(EMAIL_BODY)}`}
+                                        target="_blank"
                                     >
                                         {fullData.contact}
                                     </Link>
@@ -72,7 +75,8 @@ const TallerHome: React.FC<{}> = () => {
                         </Grid>
                     </Grid>
                 </Grid>
-            </Container>
+            }
+        </Container>
     );
 };
 
